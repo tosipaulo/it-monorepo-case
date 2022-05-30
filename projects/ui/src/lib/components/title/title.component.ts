@@ -4,7 +4,7 @@ import { Component, Input } from '@angular/core';
   selector: 'lib-title',
   styleUrls: ['./title.component.scss'],
   template: `
-    <h2>{{ title }}</h2>
+    <h2 class="title">{{ title }}</h2>
   `
 })
 export class TitleComponent {
