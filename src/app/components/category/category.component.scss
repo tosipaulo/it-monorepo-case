@@ -7,8 +7,32 @@
     @include media-md {
         position: relative;
     }
+
+    &__header {
+        display: flex;
+        justify-content: space-between;
+
+        &__button {
+            width: 32px;
+            height: 32px;
+        }
+
+        svg {
+            width: 100%;
+            
+            line {
+                stroke: var(--color-gray-light);
+            }
+        }
+    }
     
     &__nav {
         margin-top: 72px;
+        height: 60vh;
+        overflow: auto;
+
+        @include media-md {
+            height: 70vh;
+        }
     }
 }
