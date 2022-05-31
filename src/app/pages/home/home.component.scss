@@ -1,0 +1,28 @@
+@import 'scss/utils';
+
+.box {
+    &__header {
+        margin-bottom: 40px;
+        padding-bottom: 40px;
+        border-bottom: 1px solid var(--color-gray-light);
+    }
+
+    &__content {
+        margin-top: 40px;
+        padding-bottom: 82px;
+
+        @include media-md {
+            padding-bottom: 0;
+        }
+    }
+}
+
+.expense {
+    &__item {
+        position: relative;
+        
+        &:not(:last-child) {
+            margin-bottom: 32px;
+        }
+    }
+}
