@@ -1,7 +1,6 @@
 @import 'scss/utils';
 
 .category {
-    display: none;
     position: fixed;
     height: 100vh;
     left: 0;
@@ -10,7 +9,6 @@
     z-index: 1;
 
     @include media-md {
-        display: block;
         position: relative;
     }
     

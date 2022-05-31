@@ -6,8 +6,14 @@
     }
 
     &__category {
+        display: none;
         @include media-md {
             width: 30%;
+            display: block;
+        }
+
+        &.is-active {
+            display: block;
         }
     }
 

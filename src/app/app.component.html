@@ -1,8 +1,8 @@
 <div class="box">
-    <app-category class="box__category"></app-category>
+    <app-category class="box__category" [class.is-active]="itemMenuFooter === 'category'"></app-category>
 
     <main class="box__main">
         <router-outlet></router-outlet>
     </main>
-    <app-footer></app-footer>
+    <app-footer (eventFooter)="handleFooter($event)"></app-footer>
 </div>
