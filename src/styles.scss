@@ -3,16 +3,32 @@
     padding: 0;
     box-sizing: border-box;
     font-family: 'Montserrat', sans-serif;
+    list-style: none;
+    text-decoration: none;
+    color: #292929;
 }
 
 :root {
-    --primary: #00c65c;
-    --primary-light: #e0f8eb;
-    --primary-dark: #005f61;
-    --secondary: #ac521a;
-    --gray: #999;
-    --gray-light: #eee;
+    --color-primary: #FE3386;
+    --color-primary-light: #f969a5;
+    --color-expense: #00c65c;
+    --color-not-expense: #ac521a;
+    --color-gray: #999;
+    --color-gray-light: #eee;
+    --color-gray-dark: #292929;
+}
+
+:focus {
+    outline: 2px solid orange;
 }
 
 
 html, body { height: 100%; font-size: 16px;}
+
+.container {
+    padding: 24px;
+
+    @media (min-width: 768px) {
+        padding: 40px;
+    }
+}

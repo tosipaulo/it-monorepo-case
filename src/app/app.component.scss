@@ -1,0 +1,15 @@
+@import 'scss/utils';
+
+.box {
+    @include media-md {
+        display: flex;
+    }
+
+    &__category {
+        width: 30%;
+    }
+
+    &__main {
+        width: 70%;
+    }
+}

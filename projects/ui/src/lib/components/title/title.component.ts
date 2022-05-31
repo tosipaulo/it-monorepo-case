@@ -4,10 +4,10 @@ import { Component, Input } from '@angular/core';
   selector: 'lib-title',
   styleUrls: ['./title.component.scss'],
   template: `
-    <h2 class="title">{{ title }}</h2>
+    <h2 class="title" [class.title__dark]="theme === 'dark' ? 'dark' : null">{{ title }}</h2>
   `
 })
 export class TitleComponent {
-  @Input() title = ''
-
+  @Input() title = '';
+  @Input() theme = '';
 }
