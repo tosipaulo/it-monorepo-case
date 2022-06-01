@@ -1,0 +1,10 @@
+<lib-container>
+    <lib-title title="Meus Gastos" theme="dark"></lib-title>
+    <ng-container *ngIf="filterListExpense?.length; else empty">
+        <lib-expense [listExpense]="filterListExpense"></lib-expense>
+    </ng-container>
+</lib-container>
+
+<ng-template #empty>
+    <span>Não existe gasto para essa categoria</span>
+</ng-template>

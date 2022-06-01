@@ -7,10 +7,12 @@ import {
   ContainerModule, 
   TitleModule, 
   InputModule,
-  ButtonModule
+  ButtonModule,
+  ExpenseModule
 } from 'ui';
 import { CreateCategoryComponent } from './components/create-category/create-category.component';
 import { EditCategoryComponent } from './components/edit-category/edit-category.component';
+import { FilterByCategoryComponent } from './components/filter-by-category/filter-by-category.component';
 
 
 
@@ -18,7 +20,8 @@ import { EditCategoryComponent } from './components/edit-category/edit-category.
   declarations: [
     CategoryComponent,
     CreateCategoryComponent,
-    EditCategoryComponent
+    EditCategoryComponent,
+    FilterByCategoryComponent
   ],
   imports: [
     CommonModule,
@@ -27,7 +30,8 @@ import { EditCategoryComponent } from './components/edit-category/edit-category.
     TitleModule,
     InputModule,
     ReactiveFormsModule,
-    ButtonModule
+    ButtonModule,
+    ExpenseModule
   ],
   exports: [
     CategoryComponent
