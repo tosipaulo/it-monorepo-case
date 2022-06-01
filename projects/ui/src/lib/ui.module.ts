@@ -4,13 +4,15 @@ import { ListCategoryModule } from './components/list-category/list-category.mod
 import { TitleModule } from './components/title/title.module';
 import { ContainerModule } from './components/container/container.module';
 import { InputModule } from './components/input/input.module';
+import { ButtonModule } from './components/button/button.module';
 
 @NgModule({
   imports: [
     TitleModule,
     ListCategoryModule,
     ContainerModule,
-    InputModule
+    InputModule,
+    ButtonModule
   ]
 })
 export class UiModule { }

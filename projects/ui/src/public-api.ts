@@ -11,3 +11,6 @@ export * from './lib/components/container/container.component';
 
 export * from './lib/components/input/input.module';
 export * from './lib/components/input/input.component';
+
+export * from './lib/components/button/button.module';
+export * from './lib/components/button/button.component';

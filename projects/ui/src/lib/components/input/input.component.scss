@@ -3,14 +3,14 @@
 .input_group {
     &__label {
         display: block;
-        color: var(--color-gray-dark);
+        color: var(--color-gray);
         margin-bottom: 8px;
         font-weight: 600;
     }
     &__input {
         width: 100%;
-        border: 1px solid var(--color-primary);
-        padding: 8px;
+        border: 2px solid var(--color-gray-light);
+        padding: 12px;
         color: var(--color-gray-dark);
         border-radius: 4px;
         font-size: rem(16);
