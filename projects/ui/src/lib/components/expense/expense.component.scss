@@ -1,0 +1,25 @@
+@import 'scss/utils';
+
+.expense {
+    &__item {
+        position: relative;
+        
+        &:not(:last-child) {
+            margin-bottom: 40px;
+        }
+    }
+
+    &__category {
+        color: var(--color-gray);
+        font-size: rem(14);
+    }
+
+    &__currency {
+        position: absolute;
+        right: 0;
+        top: 10px;
+        font-size: rem(20);
+        font-weight: 600;
+        color: var(--color-not-expense);
+    }
+}

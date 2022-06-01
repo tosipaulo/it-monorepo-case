@@ -14,3 +14,6 @@ export * from './lib/components/input/input.component';
 
 export * from './lib/components/button/button.module';
 export * from './lib/components/button/button.component';
+
+export * from './lib/components/expense/expense.module';
+export * from './lib/components/expense/expense.component';
