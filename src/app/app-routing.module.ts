@@ -7,6 +7,10 @@ const routes: Routes = [
     loadChildren: () => import('./pages/category/category.module').then(m => m.CategoryModule)
   },
   {
+    path: 'lancamento',
+    loadChildren: () => import('./pages/expense/expense.module').then(m => m.ExpenseModule)
+  },
+  {
     path: '**',
     redirectTo: '/',
     pathMatch: 'full'
