@@ -1,13 +1,4 @@
-<section class="box container">
-    <header class="box__header">
-        <lib-title title="Meus Gastos" theme="dark"></lib-title>
-    </header>
-
-    <div class="box__content">
-        <lib-expense [listExpense]="[{
-            description: 'sdfasf',
-            date: '02/05/2022',
-            value: 33.33
-        }]"></lib-expense>
-    </div>
-</section>
+<lib-container [hasMenuToBack]="false">
+    <lib-title title="Meus Gastos" theme="dark"></lib-title>
+    <lib-expense [listExpense]="listExpense"></lib-expense>
+</lib-container>
