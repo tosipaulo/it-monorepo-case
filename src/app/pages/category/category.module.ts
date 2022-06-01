@@ -9,12 +9,16 @@ import {
   InputModule,
   ButtonModule
 } from 'ui';
+import { CreateCategoryComponent } from './components/create-category/create-category.component';
+import { EditCategoryComponent } from './components/edit-category/edit-category.component';
 
 
 
 @NgModule({
   declarations: [
-    CategoryComponent
+    CategoryComponent,
+    CreateCategoryComponent,
+    EditCategoryComponent
   ],
   imports: [
     CommonModule,

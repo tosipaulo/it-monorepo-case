@@ -1,5 +1,5 @@
-import { Component, EventEmitter, forwardRef, Input, OnInit, Output } from '@angular/core';
-import { ControlValueAccessor, FormControl, NG_VALUE_ACCESSOR } from '@angular/forms';
+import { Component, EventEmitter, forwardRef, Input, OnInit, Optional, Output, Self } from '@angular/core';
+import { ControlValueAccessor, FormControl, NgControl, NG_VALUE_ACCESSOR } from '@angular/forms';
 
 @Component({
   selector: 'lib-input',
@@ -23,7 +23,7 @@ export class InputComponent implements OnInit, ControlValueAccessor {
 
   inputValue = new FormControl();
 
-  constructor() { }
+  constructor() {}
 
   ngOnInit(): void {
   }
@@ -32,9 +32,11 @@ export class InputComponent implements OnInit, ControlValueAccessor {
     this.value = value;
     this.onChange(this.value);
     this.valueChange.emit(this.value);
+    this.inputValue.setValue(this.value);
   }
 
   registerOnChange(fn: (value: string | number) => void): void {
+    console.log('sdfs')
     this.onChange = fn;
   }
 
@@ -47,6 +49,7 @@ export class InputComponent implements OnInit, ControlValueAccessor {
   }
 
   handleInput(value) {
+    console.log(value)
     this.writeValue(value)
   }
 
