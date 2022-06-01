@@ -1,5 +1,5 @@
 import { Category } from './model/category.model';
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'lib-list-category',
@@ -9,10 +9,15 @@ import { Component, Input, OnInit } from '@angular/core';
 export class ListCategoryComponent implements OnInit {
 
   @Input() category: Category[] = [];
+  @Output() onDelete: EventEmitter<Category> = new EventEmitter<Category>();
 
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  handleDelete(category: Category) {
+    this.onDelete.emit(category);
   }
 
 }

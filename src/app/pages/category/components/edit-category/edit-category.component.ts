@@ -1,7 +1,6 @@
-import { ThrowStmt } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { NavigationEnd, Router } from '@angular/router';
+import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import { Category } from 'src/app/model/category.model';
 import { CategoryService } from 'src/app/services/category/category.service';
 
@@ -13,32 +12,44 @@ export class EditCategoryComponent implements OnInit {
 
   form: FormGroup;
   listCategory: Category[];
-  category: Category;
+  idCategory: string;
 
   constructor(
     private fb: FormBuilder,
     private categoryService: CategoryService,
-    private router: Router
+    private router: Router,
+    private activedRoute: ActivatedRoute 
   ) { 
     this.categoryService.storeCategory$
       .subscribe(_listCategory => this.listCategory = _listCategory);
+
+      this.router.events.subscribe(event => {
+        if (event instanceof NavigationEnd) {
+          this.idCategory = this.activedRoute.snapshot.params.id
+          this.getCategoryById(this.idCategory);
+        }
+      });
   }
 
   ngOnInit(): void {
     this.form = this.fb.group({
       name: ['', Validators.required]
-    });
+    });    
+  }
 
-    this.router.events.subscribe(event => {
-      if (event instanceof NavigationEnd) {
-          this.category = this.router.getCurrentNavigation().extras.state;
-          this.form.patchValue({name: this.category.name});
-      }
-    });
+  getCategoryById(idCategory: string) {
+    this.categoryService.getById(idCategory)
+      .subscribe(category => this.form.controls['name'].setValue(category.name));
   }
 
   submit() {
-    console.log(this.form.value)
+    const { name } = this.form.value;
+    this.categoryService.update({
+      id: this.idCategory,
+      name
+    }).subscribe(updateCategory => {
+      this.categoryService.storeCategory = Object.assign(updateCategory, this.listCategory);
+    })
   }
 
 }

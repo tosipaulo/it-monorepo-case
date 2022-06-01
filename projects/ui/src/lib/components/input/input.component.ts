@@ -36,7 +36,6 @@ export class InputComponent implements OnInit, ControlValueAccessor {
   }
 
   registerOnChange(fn: (value: string | number) => void): void {
-    console.log('sdfs')
     this.onChange = fn;
   }
 

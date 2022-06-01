@@ -13,7 +13,9 @@
         </header>
        
         <nav class="category__nav">
-           <lib-list-category [category]="category"></lib-list-category>
+           <lib-list-category 
+            [category]="category"
+            (onDelete)="handleDelete($event)"></lib-list-category>
         </nav>
     </div>
 </aside>

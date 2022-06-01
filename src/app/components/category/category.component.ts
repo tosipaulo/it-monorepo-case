@@ -1,6 +1,5 @@
 import { CategoryService } from './../../services/category/category.service';
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
 import { Category } from '../../model/category.model';
 
 @Component({
@@ -25,6 +24,13 @@ export class CategoryComponent implements OnInit {
           this.category = categoryResponse;
         }
       });
+  }
+
+  handleDelete(category: Category) {
+    this.categoryService.delete(category.id)
+      .subscribe(() => {
+        this.categoryService.storeCategory = this.category.filter((item) => item.id != category.id)
+      })
   }
 
 }
