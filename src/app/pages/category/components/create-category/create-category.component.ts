@@ -30,8 +30,8 @@ export class CreateCategoryComponent implements OnInit {
     if(this.form.valid) {
       this.categoryService.save(this.form.value)
         .subscribe(categoryResponse => {
-          console.log('deu boa', categoryResponse);
-          this.categoryService.storeCategory = [categoryResponse, ...this.listCategory]
+          this.categoryService.storeCategory = [categoryResponse, ...this.listCategory];
+          this.form.reset();
         });
     }
   }

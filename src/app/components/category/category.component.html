@@ -13,9 +13,13 @@
         </header>
        
         <nav class="category__nav">
-           <lib-list-category 
-            [category]="category"
-            (onDelete)="handleDelete($event)"></lib-list-category>
+            <ng-container *ngIf="category?.length; else emptyCategory">
+                <lib-list-category [category]="category" (onDelete)="handleDelete($event)"></lib-list-category>
+            </ng-container>
         </nav>
     </div>
 </aside>
+
+<ng-template #emptyCategory>
+    <span class="category__title--empty">Não existe categoria cadastrada</span>
+</ng-template>

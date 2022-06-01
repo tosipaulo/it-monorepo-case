@@ -16,9 +16,13 @@ export class CategoryComponent implements OnInit {
   ngOnInit(): void {
     this.categoryService.storeCategory$
       .subscribe(categoryResponse => {
-        if(!categoryResponse || !categoryResponse.length) {
+        if(!categoryResponse.length) {
           this.categoryService.get().subscribe(_category => {
-            this.categoryService.storeCategory = _category;
+            if(_category.length) {
+              this.categoryService.storeCategory = _category;
+            }else {
+              this.category = [];
+            }
           })
         }else {
           this.category = categoryResponse;

@@ -48,7 +48,6 @@ export class InputComponent implements OnInit, ControlValueAccessor {
   }
 
   handleInput(value) {
-    console.log(value)
     this.writeValue(value)
   }
 

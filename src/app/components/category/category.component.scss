@@ -35,4 +35,8 @@
             height: 70vh;
         }
     }
+
+    &__title--empty {
+       color: var(--color-gray-light); 
+    }
 }
