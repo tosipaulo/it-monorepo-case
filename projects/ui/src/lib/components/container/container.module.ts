@@ -13,6 +13,6 @@ import { ContainerComponent } from './container.component';
   ],
   exports: [
     ContainerComponent
-  ],
+  ]
 })
 export class ContainerModule { }

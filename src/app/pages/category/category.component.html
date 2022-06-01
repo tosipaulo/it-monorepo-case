@@ -1,3 +1,7 @@
 <lib-container>
     <lib-title title="Adicionar Categoria" theme="dark"></lib-title>
+    <form [formGroup]="form" (ngSubmit)="submit()">
+        <lib-input formControlName="name"></lib-input>
+        <button type="submit">submit</button>
+    </form>
 </lib-container>

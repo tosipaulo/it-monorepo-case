@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { CategoryComponent } from './category.component';
 import { CategoryRoutingModule } from './category-routing.module';
 import { ContainerModule, TitleModule, InputModule } from 'ui';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -15,7 +16,8 @@ import { ContainerModule, TitleModule, InputModule } from 'ui';
     CategoryRoutingModule,
     ContainerModule,
     TitleModule,
-    InputModule
+    InputModule,
+    ReactiveFormsModule
   ],
   exports: [
     CategoryComponent

@@ -1,1 +1,9 @@
-<p>input works!</p>
+<div class="input_group">
+    <label for="" class="input_group__label">Label</label>
+    <input 
+        class="input_group__input" 
+        type="text" 
+        placeholder="Digite o nome da categoria"
+        [formControl]="inputValue"
+        (input)="handleInput(inputValue.value)">
+</div>

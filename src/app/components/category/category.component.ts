@@ -10,12 +10,21 @@ import { Category } from '../../model/category.model';
 })
 export class CategoryComponent implements OnInit {
 
-  category$: Observable<Category[]>;
+  category: Category[];
 
   constructor(private categoryService: CategoryService) { }
 
   ngOnInit(): void {
-    this.category$ = this.categoryService.getCategory();
+    this.categoryService.storeCategory$
+      .subscribe(categoryResponse => {
+        if(!categoryResponse || !categoryResponse.length) {
+          this.categoryService.get().subscribe(_category => {
+            this.categoryService.storeCategory = _category;
+          })
+        }else {
+          this.category = categoryResponse;
+        }
+      });
   }
 
 }
