@@ -1,1 +1,13 @@
-<p>create-expense works!</p>
+<lib-container>
+    <lib-title title="Adicionar Gasto" theme="dark"></lib-title>
+    <form [formGroup]="form" (ngSubmit)="submit()">
+        <lib-input formControlName="description" label="Descrição do Gasto"></lib-input>
+        <lib-select 
+            formControlName="idCategoria" 
+            label="Categoria"
+            [options]="listCategoria"></lib-select>
+        <lib-input formControlName="date" label="Data"></lib-input>
+        <lib-input formControlName="value" label="Valor"></lib-input>
+        <button type="submit" lib-button class="mt-16">Cadastrar</button>
+    </form>
+</lib-container>

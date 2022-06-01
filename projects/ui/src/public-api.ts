@@ -17,3 +17,6 @@ export * from './lib/components/button/button.component';
 
 export * from './lib/components/expense/expense.module';
 export * from './lib/components/expense/expense.component';
+
+export * from './lib/components/select/select.module';
+export * from './lib/components/select/select.component';

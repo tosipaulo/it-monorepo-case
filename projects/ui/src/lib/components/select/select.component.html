@@ -1,0 +1,14 @@
+
+
+<div class="input_group">
+    <label for="" class="input_group__label">{{ label }}</label>
+
+    <select 
+        [formControl]="inputValue"
+        (change)="handleInput(inputValue.value)"
+        class="input_group__input">
+        <option *ngFor="let item of options" [ngValue]="item?.id">
+            {{ item?.name }}
+        </option>
+    </select>
+</div>
