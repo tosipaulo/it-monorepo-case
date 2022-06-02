@@ -4,7 +4,10 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve --host 0.0.0.0",
-    "build": "ng build",
+    "build:portal": "ng build it-monorepo-case --prod --base-href / --deploy-url /",
+    "build:lib": "ng build ui --prod",
+    "docker:build": "docker build -t it-monorepo-case",
+    "docker:start": "docker run -p 8081:80 it-monorepo-case",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
