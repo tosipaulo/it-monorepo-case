@@ -15,14 +15,12 @@ Esse projeto foi desenvolvido com [Angular CLI](https://github.com/angular/angul
 > **IMPORTANTE:** Utilizar a versão atualizada da API [it-api-case](https://github.com/tosipaulo/it-api-case) no meu [GitHub](https://github.com/tosipaulo/it-api-case), que foi adicionado nova funcionalidade de atualizar o objeto referente a **lançamento** e **categoria**.
 
 ## Projeto
----
 Ele foi desenvolvido utilizando dois workspace do Angular no mesmo projeto. 
 
 Primeiro workspace, foi uma construção do futuro Design System utilizando a arquitetura de Library do Angular e outro workspace base, utilizado com arquitetura modular do Angular.
 
 
 ## Como rodar
----
 1. Clone esse projeto 
 ```bash
 git clone git@github.com:tosipaulo/it-monorepo-case.git
@@ -52,7 +50,6 @@ git clone git@github.com:tosipaulo/it-monorepo-case.git
     3. Abra o navegador e digíte o endereço `http://localhost:4200
     `
 ## Pontos Extra
----
 * **Escalabilidade:** Utilizando as duas arquiteturas, podemos ter posibilidade de adicionar novas features na Biblioteca de Componentes ou Modulos com times completamentes diferentes.
 * **Alta disponibilidade:** Sim, possibilitando a analise separamente das partes do projeto. 
 * **Observabilidade:** Sim, uso do Dynatrace.  
