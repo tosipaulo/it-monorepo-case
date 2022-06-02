@@ -5,7 +5,6 @@
         #customInput
         class="input_group__input sd" 
         type="text" 
-        placeholder="Digite o nome da categoria"
         [formControl]="inputValue"
         currencyMask
         [options]="{ prefix: 'R$ ', thousands: '.', decimal: ',', align: 'left' }"
@@ -19,7 +18,7 @@
         #customInput
         class="input_group__input" 
         type="text" 
-        placeholder="Digite o nome da categoria"
+        [placeholder]="placeholder"
         [mask]="maskConfig"
         [formControl]="inputValue"
         (blur)="handleInput(inputValue.value)">

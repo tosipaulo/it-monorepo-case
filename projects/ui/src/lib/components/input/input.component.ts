@@ -17,6 +17,7 @@ export class InputComponent implements OnInit, ControlValueAccessor {
 
   @Input() public value: string | number = null;
   @Input() public label: string = '';
+  @Input() public placeholder: string = '';
   @Input() public maskConfig: string = '';
   @Input() public isCurrency: boolean = false;
   @Output() public valueChange = new EventEmitter<string | number>();

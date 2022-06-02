@@ -1,7 +1,9 @@
 <lib-container>
     <lib-title title="Editar Categoria" theme="dark"></lib-title>
     <form [formGroup]="form" (ngSubmit)="submit()">
-        <lib-input formControlName="name" label="Nome da Categoria"></lib-input>
+        <lib-input 
+            formControlName="name" 
+            label="Nome da Categoria"></lib-input>
         <button type="submit" lib-button class="mt-16">Atualizar</button>
     </form>
 </lib-container>

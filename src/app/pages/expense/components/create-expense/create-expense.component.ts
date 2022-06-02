@@ -2,6 +2,8 @@ import { Expense } from 'src/app/model/expense.model';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 import { CategoryService } from 'src/app/services/category/category.service';
+import { ExpenseService } from 'src/app/services/expense/expense.service';
+import { Category } from './../../../../model/category.model';
 
 @Component({
   selector: 'app-create-expense',
@@ -10,17 +12,22 @@ import { CategoryService } from 'src/app/services/category/category.service';
 export class CreateExpenseComponent implements OnInit {
 
   form: FormGroup;
-  listCategoria: Expense[];
+  listCategoria: Category[];
+  listExpense: Expense[];
 
   constructor(
     private fb: FormBuilder,
-    private categoryService: CategoryService
+    private categoryService: CategoryService,
+    private expenseService: ExpenseService
     ) { }
 
   ngOnInit(): void {
 
     this.categoryService.storeCategory$
       .subscribe(_listCategory => this.listCategoria = _listCategory);
+
+    this.expenseService.storeExpense$
+      .subscribe(_listExpense => this.listExpense = _listExpense);
 
     this.form = this.fb.group({
       description: [''],
@@ -31,6 +38,9 @@ export class CreateExpenseComponent implements OnInit {
   }
 
   submit() {
-    console.log(this.form.value)
+    this.expenseService.save(this.form.value)
+      .subscribe(_expenseRepnse => {
+        this.expenseService.storeExpense = [_expenseRepnse, ...this.listExpense];
+      });
   }
 }

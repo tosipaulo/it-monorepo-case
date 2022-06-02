@@ -18,13 +18,9 @@ export class ExpenseService {
     return this.http.get<Expense[]>(`${environment.api}/lancamento`);
   }
 
-  // getById(id: string) {
-  //   return this.http.get<Category>(`${environment.api}/categoria/${id}`);
-  // }
-
-  // save(category: Category) {
-  //   return this.http.post<Category>(`${environment.api}/categoria`, category);
-  // }
+  save(expense: Expense) {
+    return this.http.post<Expense>(`${environment.api}/lancamento`, expense);
+  }
 
   // update(category: Category) {
   //   const { id, name } = category

@@ -1,7 +1,10 @@
 <lib-container>
     <lib-title title="Adicionar Gasto" theme="dark"></lib-title>
     <form [formGroup]="form" (ngSubmit)="submit()">
-        <lib-input formControlName="description" label="Descrição do Gasto"></lib-input>
+        <lib-input 
+            formControlName="description" 
+            label="Descrição do Gasto"
+            placeholder="Ex: Almoço com a família"></lib-input>
         <lib-select 
             formControlName="idCategoria" 
             label="Categoria"
@@ -9,6 +12,7 @@
         <lib-input 
             formControlName="date" 
             label="Data" 
+            placeholder="02/05/2022"
             maskConfig="00/00/0000"></lib-input>
         <lib-input 
             formControlName="value" 
