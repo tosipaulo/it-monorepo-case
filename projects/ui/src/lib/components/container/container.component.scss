@@ -16,7 +16,19 @@
                 width: 32px;
                 height: 32px;
                 fill: var(--color-gray);
+
+                line {
+                    stroke: var(--color-gray);
+                }
             }
+        }
+
+        &__title {
+            flex: 1;
+        }
+
+        &__action {
+
         }
     }
 
