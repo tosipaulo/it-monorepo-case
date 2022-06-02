@@ -6,8 +6,14 @@
             formControlName="idCategoria" 
             label="Categoria"
             [options]="listCategoria"></lib-select>
-        <lib-input formControlName="date" label="Data"></lib-input>
-        <lib-input formControlName="value" label="Valor"></lib-input>
+        <lib-input 
+            formControlName="date" 
+            label="Data" 
+            maskConfig="00/00/0000"></lib-input>
+        <lib-input 
+            formControlName="value" 
+            label="Valor"
+            maskConfig="separator.2" [isCurrency]="true"></lib-input>
         <button type="submit" lib-button class="mt-16">Cadastrar</button>
     </form>
 </lib-container>

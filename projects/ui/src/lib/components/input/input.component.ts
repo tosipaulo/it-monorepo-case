@@ -1,4 +1,4 @@
-import { Component, EventEmitter, forwardRef, Input, OnInit, Optional, Output, Self } from '@angular/core';
+import { Component, EventEmitter, forwardRef, Input, OnInit, Optional, Output, Self, ElementRef, ViewChild } from '@angular/core';
 import { ControlValueAccessor, FormControl, NgControl, NG_VALUE_ACCESSOR } from '@angular/forms';
 
 @Component({
@@ -17,13 +17,16 @@ export class InputComponent implements OnInit, ControlValueAccessor {
 
   @Input() public value: string | number = null;
   @Input() public label: string = '';
+  @Input() public maskConfig: string = '';
+  @Input() public isCurrency: boolean = false;
   @Output() public valueChange = new EventEmitter<string | number>();
   public onChange = (value: string | number) => {};
   public onTouched = () => {};
 
   inputValue = new FormControl();
+  @ViewChild('customInput', {static: false}) inputEl: ElementRef;
 
-  constructor() {}
+  constructor(private elementRef: ElementRef) {}
 
   ngOnInit(): void {
   }
@@ -48,6 +51,10 @@ export class InputComponent implements OnInit, ControlValueAccessor {
   }
 
   handleInput(value) {
+    this.writeValue(this.inputEl.nativeElement.value);
+  }
+
+  eventBlur(value: string) {
     this.writeValue(value)
   }
 

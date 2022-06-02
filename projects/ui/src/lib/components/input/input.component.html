@@ -1,9 +1,26 @@
 <div class="input_group">
     <label for="" class="input_group__label">{{ label }}</label>
-    <input 
-        class="input_group__input" 
+    <ng-container *ngIf="isCurrency; else default">
+        <input 
+        #customInput
+        class="input_group__input sd" 
         type="text" 
         placeholder="Digite o nome da categoria"
         [formControl]="inputValue"
-        (change)="handleInput(inputValue.value)">
+        currencyMask
+        [options]="{ prefix: 'R$ ', thousands: '.', decimal: ',', align: 'left' }"
+        (blur)="eventBlur(inputValue.value)">
+    </ng-container>
+    
 </div>
+
+<ng-template #default>
+    <input 
+        #customInput
+        class="input_group__input" 
+        type="text" 
+        placeholder="Digite o nome da categoria"
+        [mask]="maskConfig"
+        [formControl]="inputValue"
+        (blur)="handleInput(inputValue.value)">
+</ng-template>
