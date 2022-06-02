@@ -1,6 +1,6 @@
 <lib-container [hasMenuToBack]="false" [actions]="true">
     <lib-title title="Meus Gastos" theme="dark"></lib-title>
-    <ng-container *ngIf="listExpense.length; else empty">
+    <ng-container *ngIf="listExpense?.length; else empty">
         <lib-expense [listExpense]="listExpense"></lib-expense>
     </ng-container>
 </lib-container>

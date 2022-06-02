@@ -1,12 +1,27 @@
 import { Router } from '@angular/router';
 import { Expense } from 'src/app/model/expense.model';
-import { FormGroup, FormBuilder } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 import { CategoryService } from 'src/app/services/category/category.service';
 import { ExpenseService } from 'src/app/services/expense/expense.service';
 import { Category } from './../../../../model/category.model';
 
 import Swal from 'sweetalert2';
+
+const ALERT_SUCCESS = {
+  title: 'Adicionado!!!',
+  text: "Seu gasto foi adicionado com sucesso.",
+  icon: 'success',
+  confirmButtonColor: '#3085d6',
+  confirmButtonText: 'Voltar para lista',
+}
+
+const ALERT_ERROR = {
+  title: 'Ops!!!',
+  text: "Verifique se todos os campos estão preenchido.",
+  icon: 'error',
+  confirmButtonColor: '#3085d6',
+}
 @Component({
   selector: 'app-create-expense',
   templateUrl: './create-expense.component.html'
@@ -33,31 +48,34 @@ export class CreateExpenseComponent implements OnInit {
       .subscribe(_listExpense => this.listExpense = _listExpense);
 
     this.form = this.fb.group({
-      description: [''],
+      description: ['', Validators.required],
       idCategoria: [null],
-      date: [''],
-      value: ['']
+      date: ['', Validators.required],
+      value: ['', Validators.required]
     })
   }
 
   submit() {
-    this.expenseService.save(this.form.value)
-      .subscribe(_expenseRepnse => {
-        this.expenseService.storeExpense = [_expenseRepnse, ...this.listExpense];
-        this.openAlert();
-      });
+    if(this.form.valid) {
+      this.expenseService.save(this.form.value)
+      .subscribe(
+        _expenseRepnse => {
+          this.expenseService.storeExpense = [_expenseRepnse, ...this.listExpense];
+          this.openAlert(ALERT_SUCCESS, () => {
+            this.router.navigate(['/'])
+          });
+        },
+        error => {
+          this.openAlert(ALERT_ERROR)
+        }
+      );
+    }
   }
 
-  openAlert() {
-    Swal.fire({
-      title: 'Adicionado!!!',
-      text: "Seu gasto foi adicionado com sucesso.",
-      icon: 'success',
-      confirmButtonColor: '#3085d6',
-      confirmButtonText: 'Voltar para lista',
-    }).then((result) => {
-      if (result.isConfirmed) {
-        this.router.navigate(['/'])
+  openAlert(configAlert: any, fn?: () => void) {
+    Swal.fire(configAlert).then((result) => {
+      if (result.isConfirmed && fn) {
+        fn();
       }
     })
   }
