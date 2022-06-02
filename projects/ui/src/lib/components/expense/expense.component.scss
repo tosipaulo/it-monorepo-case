@@ -7,6 +7,12 @@
         &:not(:last-child) {
             margin-bottom: 40px;
         }
+
+        &:hover {
+            .expense__title {
+                text-decoration: underline;
+            }
+        }
     }
 
     &__category {

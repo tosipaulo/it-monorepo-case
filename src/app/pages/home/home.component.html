@@ -1,4 +1,10 @@
 <lib-container [hasMenuToBack]="false" [actions]="true">
     <lib-title title="Meus Gastos" theme="dark"></lib-title>
-    <lib-expense [listExpense]="listExpense"></lib-expense>
+    <ng-container *ngIf="listExpense.length; else empty">
+        <lib-expense [listExpense]="listExpense"></lib-expense>
+    </ng-container>
 </lib-container>
+
+<ng-template #empty>
+    <span>Não existe gastos cadastro.</span>
+</ng-template>

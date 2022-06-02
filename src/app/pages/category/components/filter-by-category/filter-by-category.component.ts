@@ -35,7 +35,6 @@ export class FilterByCategoryComponent implements OnInit {
   }
 
   filterById(idCategory: string) {
-    console.log(idCategory, this.listExpense);
     this.filterListExpense = this.listExpense.filter(expense => expense.idCategoria === idCategory);
   }
 

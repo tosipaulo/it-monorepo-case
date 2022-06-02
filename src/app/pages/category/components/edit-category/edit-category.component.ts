@@ -4,6 +4,8 @@ import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import { Category } from 'src/app/model/category.model';
 import { CategoryService } from 'src/app/services/category/category.service';
 
+import Swal from 'sweetalert2';
+
 @Component({
   selector: 'app-edit-category',
   templateUrl: './edit-category.component.html'
@@ -49,6 +51,21 @@ export class EditCategoryComponent implements OnInit {
       name
     }).subscribe(updateCategory => {
       this.categoryService.storeCategory = Object.assign(updateCategory, this.listCategory);
+      this.openAlert();
+    })
+  }
+
+  openAlert() {
+    Swal.fire({
+      title: 'Adicionado!!!',
+      text: "Sua categoria foi atualizada com sucesso.",
+      icon: 'success',
+      confirmButtonColor: '#3085d6',
+      confirmButtonText: 'Voltar para lista',
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.router.navigate(['/'])
+      }
     })
   }
 
