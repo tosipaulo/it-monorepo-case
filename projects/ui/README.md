@@ -1,24 +1,16 @@
-# Ui
+# Componentes Ui
 
-This library was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.14.
+Esse projeto(Workspace) tem como intuído ser uma lib, compartilhando componente entre varios projetos Angular na version 11.2.14.
 
-## Code scaffolding
+## Desenvolvimento local
 
-Run `ng generate component component-name --project ui` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module --project ui`.
-> Note: Don't forget to add `--project ui` or else it will be added to the default project in your `angular.json` file. 
+Para desenvolver qualquer componente com live reload execute: `ng build ui --watch`
 
 ## Build
 
-Run `ng build ui` to build the project. The build artifacts will be stored in the `dist/` directory.
+Para executar uma build `ng build ui --prod` 
 
-## Publishing
+## Testes Unitários
 
-After building your library with `ng build ui`, go to the dist folder `cd dist/ui` and run `npm publish`.
+Execute `ng test ui` para executar os testes.
 
-## Running unit tests
-
-Run `ng test ui` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
