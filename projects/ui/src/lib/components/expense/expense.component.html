@@ -1,7 +1,9 @@
 <ul class="expense">
     <li class="expense__item" *ngFor="let expense of listExpense">
-        <h3 class="expense__title">{{ expense?.description }}</h3>
-        <p class="expense__category">{{ expense?.date }}</p>
-        <p class="expense__currency">{{ expense?.value | currency: 'R$ '}}</p>
+        <a [routerLink]="['lancamento/editar/'+ expense?.id]">
+            <h3 class="expense__title">{{ expense?.description }}</h3>
+            <p class="expense__category">{{ expense?.date }}</p>
+            <p class="expense__currency">{{ expense?.value | currency: 'R$ '}}</p>
+        </a>
     </li>
 </ul>

@@ -1,3 +1,4 @@
+import { RouterModule } from '@angular/router';
 import { NgModule, LOCALE_ID } from '@angular/core';
 import { CommonModule, registerLocaleData } from '@angular/common';
 import { ExpenseComponent } from './expense.component';
@@ -10,7 +11,8 @@ registerLocaleData(localePt, 'pt');
     ExpenseComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    RouterModule
   ],
   exports: [
     ExpenseComponent

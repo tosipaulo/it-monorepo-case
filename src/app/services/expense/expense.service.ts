@@ -22,14 +22,13 @@ export class ExpenseService {
     return this.http.post<Expense>(`${environment.api}/lancamento`, expense);
   }
 
-  // update(category: Category) {
-  //   const { id, name } = category
-  //   return this.http.put<Category>(`${environment.api}/categoria/${id}`, { name });
-  // }
+  getById(id: string) {
+    return this.http.get<Expense>(`${environment.api}/lancamento/${id}`);
+  }
 
-  // delete(id: string) {
-  //   return this.http.delete(`${environment.api}/categoria/${id}`);
-  // }
+  update(expense: Expense) {
+    return this.http.put<Expense>(`${environment.api}/lancamento/${expense?.id}`, expense);
+  }
 
   get storeExpense$() {
     return this.expenseSubject.asObservable();
